@@ -13,7 +13,7 @@ class HomePageScreen extends StatelessWidget {
       key: formKey,
       child: Scaffold(
         appBar: AppBar(
-          title: Text("SDGC App"),
+          title: Text("DSC App"),
           leading: Icon(Icons.home),
           actions: [
             Icon(Icons.notifications),
