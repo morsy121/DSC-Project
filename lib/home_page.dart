@@ -1,3 +1,5 @@
+import 'package:dscproject/HomeScreen.dart';
+import 'package:dscproject/signup.dart';
 import 'package:flutter/material.dart';
 
 class HomePageScreen extends StatelessWidget {
@@ -6,6 +8,7 @@ class HomePageScreen extends StatelessWidget {
   final formKey = GlobalKey<FormState>();
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  bool ispassword = false;
 
   @override
   Widget build(BuildContext context) {
@@ -37,9 +40,7 @@ class HomePageScreen extends StatelessWidget {
                   width: 200,
                   height: 200,
                   child: CircleAvatar(
-                    backgroundImage: NetworkImage(
-                        "https://scontent.fcai21-2.fna.fbcdn.net/v/t39.30808-6/248275070_2997104663940169_5379034478312343304_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=USYiuR3o62MAX-6tMqS&_nc_ht=scontent.fcai21-2.fna&oh=00_AT_5N2uuYWVrW-DKWIGhTjehH9HFDCFyfJpWX9cbhS7wBw&oe=626086CE"),
-                  ),
+                      backgroundImage: AssetImage("assets/images/login.webp")),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(20),
@@ -72,6 +73,7 @@ class HomePageScreen extends StatelessWidget {
                     controller: passwordController,
                     obscureText: true,
                     decoration: InputDecoration(
+                      suffixIcon: Icon(Icons.remove_red_eye),
                       labelText: "password",
                       border: OutlineInputBorder(),
                     ),
@@ -90,8 +92,11 @@ class HomePageScreen extends StatelessWidget {
                       child: TextButton(
                         onPressed: () {
                           if (formKey.currentState!.validate()) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(content: Text('Processing Data')),
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => HomePage(),
+                              ),
                             );
                           }
                         },
@@ -123,7 +128,14 @@ class HomePageScreen extends StatelessWidget {
                         width: 10,
                       ),
                       InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => RegisterScreen(),
+                              ),
+                            );
+                          },
                           child: Text(
                             "Sign up",
                             style: TextStyle(color: Colors.blue, fontSize: 15),
