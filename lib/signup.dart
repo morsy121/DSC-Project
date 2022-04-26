@@ -71,7 +71,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       controller: passwordController,
                       obscureText: true,
                       decoration: InputDecoration(
-                        suffixIcon: Icon(Icons.remove_red_eye),
+                        //suffixIcon: Icon(Icons.remove_red_eye),
+
                         icon: Icon(Icons.lock),
                         labelText: " password",
                         border: OutlineInputBorder(),
